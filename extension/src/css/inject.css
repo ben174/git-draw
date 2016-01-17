@@ -1,0 +1,14 @@
+
+.svg-tip {
+    display: none;
+}
+.legend>li.selected {
+    border: solid 1px #000;
+}
+.calendar-graph.days-selected rect.day {
+    opacity: 1!important;
+}
+
+svg {
+    cursor: crosshair!important;
+}

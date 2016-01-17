@@ -1,0 +1,34 @@
+
+body {
+  margin: 0px;
+  font-size: 18px;
+  font-family: Sans-serif;
+}
+#banner {
+  background-color: #CCC;
+}
+h1 {
+  margin: 0px;
+  padding: 10px 20px;
+}
+input[disabled] {
+  color: #777;
+}
+
+#config {
+  margin: 20px 3%;
+}
+button {
+  margin-top: 20px;
+  font-size: 24px;
+
+}
+input {
+  font-size: 24px;
+
+}
+label[for="chambers"] {
+  margin-bottom: 20px;
+  display: block;
+
+}
