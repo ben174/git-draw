@@ -6,6 +6,7 @@ gf = {
     },
     brushMappings: ["#eee", "#d6e685", "#8cc665", "#44a340", "#1e6823"],
     shade: 1,
+    script = null;
     brushColor: function() { 
         return gf.brushMappings[gf.shade];
     },       
@@ -24,27 +25,33 @@ gf = {
         }
     },
     render: function() {
-        var ret = "";
+        gf.script = "#!/bin/bash\n" +
+            "REPO=gf\n" + 
+            "git init $REPO\n" +
+            "cd $REPO\n" +
+            "touch README.md\n" +
+            "git add README.md\n" +                                                               
+            "touch gf\n" +
+            "git add gf\n" + 
+            "echo 0 >> gf\n";
         $("svg rect").each(function(i, item) { 
-            console.log($(item).attr("data-date"));
             var targetShade = gf.brushMappings.indexOf($(item).attr("fill"));
-            if(targetShade==-1) {
+            if ( targetShade == -1 ) {
                 targetShade = 0;
             }
             var existingCommitCount = $(item).attr("data-count");
             var targetCommitCount = targetShade * 8;
             var commitsToAdd = targetCommitCount - existingCommitCount;
+            console.log($(item).attr("data-date"));
             console.log("Target Shade: " + targetShade);            
             console.log("Current Commit Count: " + existingCommitCount);
             console.log("Commits to add: " + commitsToAdd);
-
-            var dateStr = $(item).attr("data-date");
-            m = dateStr.split("-")[1];
-            y = dateStr.split("-")[0];
-            m = dateStr.split("-")[2];
-            ret += "GIT_AUTHOR_DATE=" + dateStr + "T12:00:00 GIT_COMMITTER_DATE=" + dateStr + "T12:00:00 git commit -a -m \"gf\" > /dev/null echo 1 >> gitfiti\n";
+            for(var j=0; j < commitsToAdd; j++) {
+                gf.script += "GIT_AUTHOR_DATE=" + dateStr + "T12:00:00 GIT_COMMITTER_DATE=" + dateStr + "T12:00:00 git commit -a -m \"gf\" > /dev/null\n"
+                gf.script += "echo " + i % 2 + "-" + j%2 + " >> gf\n";
+            }
         });
-        //console.log(ret);
+        console.log(ret);
     }
 }
 
