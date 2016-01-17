@@ -1,5 +1,5 @@
-# git-draw
-Allows you to draw in your github heatmap
+# Git Draw
+Allows you to draw in your GitHub heatmap
 
 ![demo-vid](https://github.com/ben174/git-draw/raw/master/media/demo-video.gif)
 
