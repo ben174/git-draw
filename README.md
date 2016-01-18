@@ -10,7 +10,7 @@ log will match the drawing you made.
 
 Download the extension here: 
 
-    https://chrome.google.com/webstore/detail/git-draw/aapcmdackhlfobmkcpplkjpfceihngkh?hl=en-US&gl=US
+https://chrome.google.com/webstore/detail/git-draw/aapcmdackhlfobmkcpplkjpfceihngkh?hl=en-US&gl=US
 
 ## Why not a bookmarklet?
 
