@@ -18,7 +18,7 @@ https://chrome.google.com/webstore/detail/git-draw/aapcmdackhlfobmkcpplkjpfceihn
 
 ## Why not a bookmarklet?
 
-Because CSP. GitHub's CSP policy makes a bookmarklet next to impossible.
+Because [Content Security Policy](https://en.wikipedia.org/wiki/Content_Security_Policy). GitHub's CSP makes a bookmarklet next to impossible.
 There's a workaround involving injecting code into a canvas and then executing
 it from there, but that feels like something that'll be fixed. A Chrome extension
 makes it easier. Once you're done making your drawing, just uninstall the extension.
