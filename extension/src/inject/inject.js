@@ -4,6 +4,7 @@
 
 var gf = {
     init: function() {
+        getEventListeners(document.querySelectorAll("div.js-calendar-graph")[0]).mouseover[0].remove();
         $("rect[data-count]").each(function(i, item) {
             gf.maxCommits = Math.max(gf.maxCommits, item.getAttribute("data-count"));
         })
