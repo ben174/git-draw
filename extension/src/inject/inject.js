@@ -11,6 +11,7 @@ var gf = {
         $(".legend>li").unbind("click").click(gf.setBrush);
         $("svg rect").unbind("click").on("mousedown", gf.colorCell);
         $("svg rect").on("mouseover", gf.cellOver);
+        $(document).off("click");
         var btnGroupNode = $("<div>").addClass("btn-group");
         var renderBtnNode = $("<button>").text("Render").addClass("btn").addClass("btn-sm");
         var downloadBtnNode = $(renderBtnNode).clone().text("");
@@ -114,6 +115,4 @@ var gf = {
     }
 }
 
-chrome.extension.sendMessage({}, function () {
-    gf.init();
-});
+gf.init();

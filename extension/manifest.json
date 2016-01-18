@@ -13,6 +13,9 @@
     "contentSettings",
     "storage"
   ],
+  "web_accessible_resources": [
+    "src/inject/inject.js"
+  ],
   "content_scripts": [
     {
       "matches": [
@@ -20,7 +23,7 @@
       ],
       "js": [
         "src/lib/jquery-2.2.0.min.js",
-        "src/inject/inject.js"
+        "src/inject/content.js"
       ],
       "css": [
         "src/css/inject.css"
