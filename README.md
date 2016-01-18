@@ -7,3 +7,5 @@ This is a Chrome extension which will allow you to freely draw on your GitHub
 heatmap. You can then export your drawing to a script containing a git commit
 log. Once you've run and pushed this script to a new repository, your commit
 log will match the drawing you made.
+
+Download the extension here: https://chrome.google.com/webstore/detail/git-draw/aapcmdackhlfobmkcpplkjpfceihngkh?hl=en-US&gl=US
