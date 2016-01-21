@@ -55,7 +55,7 @@ var gf = {
             "git add README.md\n" +
             "touch gf\n" +
             "git add gf\n" +
-            "echo 0 >> gf\n";
+            "echo 0 > gf\n";
         $("svg rect").each(function(i, item) {
             if (!item.hasAttribute("data-touched")) {
                 return true; // read as "continue"
@@ -68,15 +68,11 @@ var gf = {
             var targetCommitCount = targetShade * gf.commitBlockSize;
             var commitsToAdd = targetCommitCount - existingCommitCount;
             var dateStr = $(item).attr("data-date");
-            console.log(dateStr);
             var canvas = $('svg')[0]
             canvas.onselectstart = function () { return false; }
-            console.log("- Target Shade: " + targetShade);
-            console.log("- Current Commit Count: " + existingCommitCount);
-            console.log("- Commits to add: " + commitsToAdd);
             for(var j=0; j < commitsToAdd; j++) {
                 gf.script += "GIT_AUTHOR_DATE=" + dateStr + "T12:00:00 GIT_COMMITTER_DATE=" + dateStr + "T12:00:00 git commit -a -m \"gf\" > /dev/null\n"
-                gf.script += "echo " + i % 2 + "-" + j % 2 + " >> gf\n";
+                gf.script += "echo " + i % 2 + "-" + j % 2 + " > gf\n";
             }
         });
     },
