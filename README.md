@@ -16,6 +16,13 @@ Download the extension here:
 
 https://chrome.google.com/webstore/detail/git-draw/aapcmdackhlfobmkcpplkjpfceihngkh?hl=en-US&gl=US
 
+## Instructional Video
+
+My Brother, Rich Friedland, made a comprehensive video on how to use the extension.
+
+https://www.youtube.com/watch?v=ptzDfPZ--Qk
+
+
 ## Why not a bookmarklet?
 
 Because CSP. GitHub's CSP policy makes a bookmarklet next to impossible.
