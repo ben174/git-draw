@@ -11,7 +11,7 @@ var gf = {
         $(".legend>li").unbind("click").click(gf.setBrush);
         $("svg rect").unbind("click").on("mousedown", gf.colorCell);
         $("svg rect").on("mouseover", gf.cellOver);
-        var btnGroupNode = $("<div>").addClass("btn-group");
+        var btnGroupNode = $("<div>").addClass("btn-group").css("margin-left", "30px");
         var renderBtnNode = $("<button>").text("Render").addClass("btn").addClass("btn-sm");
         var downloadBtnNode = $(renderBtnNode).clone().text("");
         var downloadTextNode = $("<span>").text(" Download Script...");
@@ -21,7 +21,8 @@ var gf = {
         $(downloadBtnNode).click(gf.save);
         $(btnGroupNode).append(downloadBtnNode).append(renderBtnNode);
         $(".contrib-legend > span:first").html("Brush Colors:").next().css("cursor", "pointer").next().remove();
-        $(".contrib-footer > div.left").empty().append(btnGroupNode);
+        $(".contrib-footer").after(btnGroupNode);
+
     },
     brushMappings: ["#eee", "#d6e685", "#8cc665", "#44a340", "#1e6823"],
     maxCommits: 4,
@@ -78,8 +79,9 @@ var gf = {
     },
     output: function() {
         gf.render();
-        $(".activity-listing").html("<pre><code>"+gf.script+"</code></pre>");
-        $(".activity-listing").css("font-size", "8px")
+        var outputHTML = $('<div></div>');
+        outputHTML.html("<pre><code>"+gf.script+"</code></pre>");
+        outputHTML.css("font-size", "8px")
             .css("color", "#FFE")
             .css("background-color", "#333")
             .css("padding", "5px");
@@ -88,7 +90,9 @@ var gf = {
         var downloadIconNode = $("<span>").addClass("octicon").addClass("octicon-desktop-download");
         $(downloadBtnNode).append(downloadIconNode).append(downloadTextNode).css("margin", "10px 0px");
         $(downloadBtnNode).click(gf.save);
-        $(".activity-listing").append(downloadBtnNode);
+        outputHTML.append(downloadBtnNode);
+        $(".js-contribution-graph").after(outputHTML);
+
     },
     save: function() {
         gf.render();
