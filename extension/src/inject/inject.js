@@ -8,7 +8,7 @@ var gf = {
             gf.maxCommits = Math.max(gf.maxCommits, item.getAttribute("data-count"));
         })
         gf.commitBlockSize = Math.ceil(gf.maxCommits/4);
-        $(".legend>li").unbind("click").click(gf.setBrush);
+        $(".contrib-legend").unbind("click").on('mousedown',gf.setBrush);
         $("svg rect").unbind("click").on("mousedown", gf.colorCell);
         $("svg rect").on("mouseover", gf.cellOver);
         var btnGroupNode = $("<div>").addClass("btn-group");
@@ -20,8 +20,10 @@ var gf = {
         $(renderBtnNode).click(gf.output);
         $(downloadBtnNode).click(gf.save);
         $(btnGroupNode).append(downloadBtnNode).append(renderBtnNode);
-        $(".contrib-legend > span:first").html("Brush Colors:").next().css("cursor", "pointer").next().remove();
-        $(".contrib-footer > div.left").empty().append(btnGroupNode);
+        $(".contrib-legend").html(function(index,html){
+                return html.replace('Less','Brush Colors');
+        });
+        $(".contrib-footer .float-left").empty().append(btnGroupNode);
     },
     brushMappings: ["#eee", "#d6e685", "#8cc665", "#44a340", "#1e6823"],
     maxCommits: 4,
