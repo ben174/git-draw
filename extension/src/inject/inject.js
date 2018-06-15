@@ -21,7 +21,7 @@ var gf = {
         $(downloadBtnNode).click(gf.save);
         $(btnGroupNode).append(downloadBtnNode).append(renderBtnNode);
         $(".contrib-legend > span:first").html("Brush Colors:").next().css("cursor", "pointer").next().remove();
-        $(".contrib-footer > div.left").empty().append(btnGroupNode);
+        $(".contrib-footer > div.float-left").empty().append(btnGroupNode);
     },
     brushMappings: ["#eee", "#d6e685", "#8cc665", "#44a340", "#1e6823"],
     maxCommits: 4,
